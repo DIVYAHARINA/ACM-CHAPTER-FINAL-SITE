@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACM Chapter — Student Dashboard</title>
+  <link rel="stylesheet" href="../css/profile.css" />
+  <meta name="description" content="Student profile and dashboard" />
+</head>
+<body>
+  <!-- Navigation Header -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="logo">
+        <svg class="logo-icon" viewBox="0 0 40 40" fill="currentColor">
+          <rect x="2" y="2" width="36" height="36" rx="8" fill="currentColor"/>
+          <path d="M12 14h16v2H12v-2zm0 4h16v2H12v-2zm0 4h12v2H12v-2z" fill="white"/>
+          <circle cx="30" cy="10" r="4" fill="#2575FC"/>
+        </svg>
+        <span class="logo-text">ACM Chapter</span>
+      </div>
+      <div class="nav-actions">
+        <button id="themeToggleBtn" class="theme-toggle" title="Toggle dark/light mode">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2"/>
+            <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"/>
+            <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2"/>
+            <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <button id="logoutBtn" class="btn-logout">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="dashboard">
+    <!-- Profile Header -->
+    <section class="profile-header">
+      <div class="profile-card">
+        <div class="avatar-large">
+          <span id="avatar-initials">AC</span>
+        </div>
+        <div class="profile-info">
+          <h1 id="user-name">Welcome, Student</h1>
+          <p id="user-email" class="email">student@college.edu</p>
+          <div class="role-badge">
+            <span id="user-role">Member</span>
+            <span class="status-dot active"></span>
+          </div>
+        </div>
+        <div class="profile-stats">
+          <div class="stat">
+            <div class="stat-value" id="events-count">0</div>
+            <div class="stat-label">Events Joined</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value" id="streak-count">0</div>
+            <div class="stat-label">Day Streak</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value" id="points-count">0</div>
+            <div class="stat-label">Points</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Welcome Message -->
+    <section class="welcome-section">
+      <div class="welcome-card">
+        <h2>👋 Welcome back, <span id="first-name">Student</span>!</h2>
+        <p id="welcome-message">Explore upcoming events, connect with peers, and grow your skills with ACM.</p>
+        <div class="quick-actions">
+          <button class="btn btn-primary" id="browseEventsBtn">Browse Events</button>
+          <button class="btn btn-secondary" id="editProfileBtn">Edit Profile</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation Cards -->
+    <section class="nav-cards">
+      <div class="card nav-card">
+        <div class="card-icon events-icon">📅</div>
+        <h3>Upcoming Events</h3>
+        <p><span id="upcoming-count">0</span> events scheduled</p>
+        <a href="#events-section" class="card-link">View →</a>
+      </div>
+      <div class="card nav-card">
+        <div class="card-icon registered-icon">✓</div>
+        <h3>Registered</h3>
+        <p><span id="registered-count">0</span> event registrations</p>
+        <a href="#registered-section" class="card-link">View →</a>
+      </div>
+      <div class="card nav-card">
+        <div class="card-icon ongoing-icon">▶</div>
+        <h3>Ongoing</h3>
+        <p><span id="ongoing-count">0</span> events in progress</p>
+        <a href="#ongoing-section" class="card-link">View →</a>
+      </div>
+      <div class="card nav-card">
+        <div class="card-icon resources-icon">📚</div>
+        <h3>Resources</h3>
+        <p>Learning materials</p>
+        <a href="#resources-section" class="card-link">View →</a>
+      </div>
+    </section>
+
+    <!-- Dashboard Stats -->
+    <section class="stats-section">
+      <div class="stats-grid">
+        <div class="stats-card">
+          <div class="stats-header">
+            <h4>Total Events</h4>
+            <span class="stats-badge">📊</span>
+          </div>
+          <div class="stats-main" id="stats-total">0</div>
+          <div class="stats-footer">Across all categories</div>
+        </div>
+        <div class="stats-card">
+          <div class="stats-header">
+            <h4>Attendance Rate</h4>
+            <span class="stats-badge">✅</span>
+          </div>
+          <div class="stats-main" id="stats-attendance">0%</div>
+          <div class="stats-footer">Based on registered events</div>
+        </div>
+        <div class="stats-card">
+          <div class="stats-header">
+            <h4>Achievements</h4>
+            <span class="stats-badge">🏆</span>
+          </div>
+          <div class="stats-main" id="stats-achievements">0</div>
+          <div class="stats-footer">Badges earned</div>
+        </div>
+        <div class="stats-card">
+          <div class="stats-header">
+            <h4>Member Since</h4>
+            <span class="stats-badge">📅</span>
+          </div>
+          <div class="stats-main" id="stats-member-since">-</div>
+          <div class="stats-footer">Days as member</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Events Sections -->
+    <section id="registered-section" class="events-section">
+      <div class="section-header">
+        <h2>📋 Registered Events</h2>
+        <p>Events you've signed up for</p>
+      </div>
+      <div id="registered-events" class="events-list">
+        <div class="empty-state">
+          <p>No registered events yet.</p>
+          <p class="muted">Sign up for upcoming events to see them here.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="upcoming-section" class="events-section">
+      <div class="section-header">
+        <h2>🎯 Upcoming Events</h2>
+        <p>Don't miss these opportunities</p>
+      </div>
+      <div id="upcoming-events" class="events-list">
+        <div class="empty-state">
+          <p>No upcoming events scheduled.</p>
+          <p class="muted">Check back soon for new opportunities!</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="ongoing-section" class="events-section">
+      <div class="section-header">
+        <h2>▶️ Ongoing Events</h2>
+        <p>Happening right now</p>
+      </div>
+      <div id="ongoing-events" class="events-list">
+        <div class="empty-state">
+          <p>No ongoing events at the moment.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Event Timeline -->
+    <section class="timeline-section">
+      <div class="section-header">
+        <h2>📈 Recent Activity</h2>
+        <p>Your ACM journey</p>
+      </div>
+      <div class="timeline">
+        <div id="timeline-container">
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <p class="timeline-date">Today</p>
+              <p class="timeline-title">Account created</p>
+              <p class="timeline-desc">Welcome to ACM Chapter!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Resources -->
+    <section id="resources-section" class="resources-section">
+      <div class="section-header">
+        <h2>📚 Quick Resources</h2>
+        <p>Learning materials and guides</p>
+      </div>
+      <div class="resources-grid">
+        <a href="javascript:void(0)" class="resource-card">
+          <div class="resource-icon">💻</div>
+          <h4>Technical Guides</h4>
+          <p>Programming tutorials and best practices</p>
+        </a>
+        <a href="javascript:void(0)" class="resource-card">
+          <div class="resource-icon">🎤</div>
+          <h4>Interview Tips</h4>
+          <p>Prepare for technical interviews</p>
+        </a>
+        <a href="javascript:void(0)" class="resource-card">
+          <div class="resource-icon">🤝</div>
+          <h4>Networking</h4>
+          <p>Connect with peers and mentors</p>
+        </a>
+        <a href="javascript:void(0)" class="resource-card">
+          <div class="resource-icon">📖</div>
+          <h4>ACM Library</h4>
+          <p>Digital library and publications</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 ACM Chapter. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="javascript:void(0)">Privacy</a>
+        <a href="javascript:void(0)">Terms</a>
+        <a href="javascript:void(0)">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/profile.js"></script>
+</body>
+</html>

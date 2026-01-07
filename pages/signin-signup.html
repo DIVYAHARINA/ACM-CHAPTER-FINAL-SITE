@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ACM Chapter — Sign In / Join</title>
+  <style>
+    :root{
+      --bg-0: #071029;
+      --muted: #94a3b8;
+      --text: #e6eef8;
+      --accent-1: #6ee7b7;
+      --accent-2: #60a5fa;
+      --danger: #ef4444;
+      --success: #10b981;
+      --radius: 14px;
+      --shadow: 0 18px 45px rgba(2,6,23,0.6);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(135deg,var(--bg-0),#0b2340 60%);color:var(--text)}
+    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px}
+    .card{width:100%;max-width:920px;display:grid;grid-template-columns:1fr 460px;gap:26px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+    .panel{padding:24px;display:flex;flex-direction:column;gap:18px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.015),rgba(255,255,255,0.005))}
+    .forms{padding:18px;background:linear-gradient(180deg,rgba(255,255,255,0.012),rgba(255,255,255,0.006));border-radius:10px}
+    .tab-switch{display:flex;gap:8px;margin-bottom:18px}
+    .tab-switch button{background:transparent;color:var(--muted);border:none;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:600}
+    .tab-switch button.active{background:linear-gradient(90deg,var(--accent-2),var(--accent-1));color:#04202a}
+    label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+    input,select,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.018);color:var(--text);font-size:14px}
+    .row{display:flex;gap:12px}
+    .col{flex:1}
+    .actions{display:flex;gap:12px;margin-top:8px}
+    .btn{padding:12px 14px;border-radius:10px;border:none;cursor:pointer;font-weight:600;color:#04202a;background:linear-gradient(90deg,var(--accent-2),var(--accent-1))}
+    .btn.ghost{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.03)}
+    .error{color:var(--danger);font-size:13px;margin-top:6px}
+    .success{color:var(--success);font-size:13px;margin-top:6px}
+    .select-wrapper{position:relative}
+    .select-wrapper::after{content:"▾";position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+
+    /* Logo image styling */
+    .logo {
+      width:64px;
+      height:64px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:12px;
+      overflow:visible;
+    }
+    .logo svg { width:64px; height:64px; display:block; }
+
+    /* ===== SELECT DROPDOWN STYLING ===== */
+    /* CONSISTENT STYLING: Always black text on white background */
+    #department,
+    #year {
+      background: rgba(255, 255, 255, 0.98) !important;
+      color: #000 !important;
+      -webkit-text-fill-color: #000 !important;
+      transition: background-color 0.2s ease;
+    }
+
+    /* Placeholder options styling - black text like any other option */
+    #department option[value=""],
+    #year option[value=""] {
+      color: #000 !important;
+    }
+
+    /* All options: black text on white/light background */
+    #department option,
+    #year option {
+      background: #ffffff !important;
+      color: #000 !important;
+      padding: 8px;
+      margin: 4px 0;
+    }
+
+    /* Hover/focus state for dropdowns - subtle change */
+    #department:hover,
+    #year:hover {
+      background: rgba(255, 255, 255, 1) !important;
+    }
+
+    #department:focus,
+    #year:focus {
+      background: rgba(255, 255, 255, 1) !important;
+      outline: 2px solid #2575FC;
+      outline-offset: 2px;
+    }
+
+    /* ===== PASSWORD FIELD WITH EYE ICON ===== */
+    .password-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .password-field {
+      width: 100%;
+      padding-right: 40px !important;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 18px;
+      padding: 4px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.3s ease;
+      z-index: 10;
+    }
+
+    .toggle-password:hover {
+      color: var(--accent-1);
+    }
+
+    .toggle-password:focus {
+      outline: 2px solid var(--accent-2);
+      outline-offset: 2px;
+    }
+
+    /* ===== SUCCESS MESSAGE TOAST ===== */
+    .success-toast {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.8);
+      opacity: 0;
+      background: linear-gradient(135deg, var(--success), #059669);
+      color: #fff;
+      padding: 28px 32px;
+      border-radius: 16px;
+      box-shadow: 0 24px 48px rgba(16, 185, 129, 0.3);
+      text-align: center;
+      z-index: 9999;
+      max-width: 420px;
+      pointer-events: none;
+      animation: slideInSuccess 0.5s ease-out forwards;
+    }
+
+    .success-toast.hide {
+      animation: slideOutSuccess 0.5s ease-out forwards;
+    }
+
+    .success-toast-icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+      display: inline-block;
+      animation: popBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .success-toast-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: 0.3px;
+    }
+
+    .success-toast-message {
+      font-size: 14px;
+      opacity: 0.95;
+      line-height: 1.4;
+    }
+
+    /* Animations */
+    @keyframes slideInSuccess {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    @keyframes slideOutSuccess {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+      }
+    }
+
+    @keyframes popBounce {
+      0% {
+        transform: scale(0) rotate(-45deg);
+      }
+      70% {
+        transform: scale(1.15) rotate(10deg);
+      }
+      100% {
+        transform: scale(1) rotate(0deg);
+      }
+    }
+
+    @media (max-width:980px){.card{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" role="region" aria-label="ACM Chapter Authentication">
+      <div class="panel">
+        <!-- ACM Related Free Images -->
+<div style="margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px">
+  <img
+    src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"
+    alt="Students coding together"
+    style="width:100%;height:110px;object-fit:cover;border-radius:10px;opacity:0.9"
+  />
+
+  <img
+    src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80"
+    alt="Hackathon teamwork"
+    style="width:100%;height:110px;object-fit:cover;border-radius:10px;opacity:0.9"
+  />
+</div>
+
+<div style="margin-top:10px">
+  <img
+    src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=80"
+    alt="Programming workspace"
+    style="width:100%;height:140px;object-fit:cover;border-radius:12px;opacity:0.85"
+  />
+</div>
+   <div style="display:flex;gap:12px;align-items:center">
+          <!-- Attractive inline SVG logo (keeps page self-contained) -->
+          <div class="logo" aria-hidden="false" title="ACM Student Chapter logo">
+            <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logoTitle logoDesc">
+              <title id="logoTitle">ACM Chapter Logo</title>
+              <desc id="logoDesc">Stylized circular ACM logo with gradient and code brackets</desc>
+              <defs>
+                <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0" stop-color="#60a5fa"/>
+                  <stop offset="1" stop-color="#6ee7b7"/>
+                </linearGradient>
+                <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity="0.35"/>
+                </filter>
+              </defs>
+
+              <rect x="6" y="6" width="116" height="116" rx="20" fill="url(#g1)" filter="url(#shadow)"/>
+              <rect x="16" y="16" width="96" height="96" rx="16" fill="#031426" opacity="0.95"/>
+              <g opacity="0.12" fill="#ffffff">
+                <rect x="24" y="22" width="8" height="80" rx="2" transform="rotate(-20 28 62)"/>
+                <rect x="38" y="22" width="8" height="80" rx="2" transform="rotate(-20 42 62)"/>
+              </g>
+              <g fill="#ffffff" font-family="Segoe UI, Roboto, Arial" font-weight="700" font-size="36" text-anchor="middle">
+                <text x="64" y="66" style="letter-spacing:-1">ACM</text>
+              </g>
+              <g transform="translate(64,92)" fill="#cfefff" opacity="0.85">
+                <path d="M-22 0 L-30 -12 L-18 -12 L-10 0 L-18 12 L-30 12 Z" transform="translate(-10,-28) scale(0.7)" />
+                <path d="M22 0 L30 -12 L18 -12 L10 0 L18 12 L30 12 Z" transform="translate(10,-28) scale(0.7)" />
+              </g>
+            </svg>
+          </div>
+
+          <div>
+            <h1 style="margin:0;font-size:20px">ACM Student Chapter</h1>
+            <div style="color:var(--muted);font-size:13px">Workshops · Competitions · Mentorship</div>
+          </div>
+        </div>
+
+        <div style="margin-top:8px;color:var(--muted);font-size:13px">
+          New members usually receive a welcome email within 24–48 hours. Membership may require student verification.
+        </div>
+      </div>
+
+      <div class="forms">
+        <div class="tab-switch" role="tablist" aria-label="Authentication tabs">
+          <button id="tab-signin" class="active" role="tab" aria-selected="true">Sign In</button>
+          <button id="tab-signup" role="tab" aria-selected="false">Join Chapter</button>
+        </div>
+
+        <!-- SIGN IN -->
+        <form id="signinForm" novalidate style="display:block">
+          <div>
+            <label for="signinEmail">Email</label>
+            <input id="signinEmail" type="email" placeholder="student@college.edu" required />
+          </div>
+          <div>
+            <label for="signinPassword">Password</label>
+            <input id="signinPassword" type="password" placeholder="Password" required />
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="btn">Sign In</button>
+            <button id="toSignup" type="button" class="btn ghost">Create Account</button>
+          </div>
+          <div id="signinMsg" class="error" style="display:none"></div>
+        </form>
+
+        <!-- SIGNUP -->
+        <form id="signupForm" novalidate style="display:none">
+          <div>
+            <label for="fullName">Full name</label>
+            <input id="fullName" type="text" placeholder="Jane Doe" required />
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label for="signupEmail">College email</label>
+              <input id="signupEmail" type="email" placeholder="student@college.edu" required />
+            </div>
+            <div class="col">
+              <label for="studentId">Student ID</label>
+              <input id="studentId" type="text" placeholder="e.g. S1234567" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col select-wrapper">
+              <label for="department">Department</label>
+              <select id="department" aria-label="Department">
+                <option value="">Select department</option>
+                <option>Computer Science</option>
+                <option>Information Technology</option>
+                <option>Electrical Engineering</option>
+                <option>Mathematics</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="col select-wrapper">
+              <label for="year">Year</label>
+              <select id="year" aria-label="Year">
+                <option value="">Select year</option>
+                <option>First year</option>
+                <option>Second year</option>
+                <option>Third year</option>
+                <option>Final year</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="phone">Phone</label>
+            <input id="phone" type="tel" placeholder="+1 555 555 5555" />
+          </div>
+
+          <div>
+            <label for="signupPassword">Create password</label>
+            <div class="password-wrapper">
+              <input id="signupPassword" class="password-field" type="password" placeholder="At least 8 characters" />
+              <button type="button" class="toggle-password" id="togglePassword" title="Toggle password visibility">
+                <span class="eye-icon">👁️</span>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <label for="confirmPassword">Confirm password</label>
+            <div class="password-wrapper">
+              <input id="confirmPassword" class="password-field" type="password" placeholder="Repeat password" />
+              <button type="button" class="toggle-password" id="toggleConfirmPassword" title="Toggle password visibility">
+                <span class="eye-icon">👁️</span>
+              </button>
+            </div>
+          </div>
+
+          <div style="margin-top:6px;">
+            <label for="bio">Short bio (optional)</label>
+            <textarea id="bio" placeholder="A short line about yourself"></textarea>
+          </div>
+
+          <div class="actions">
+            <button id="signupSubmit" class="btn" type="submit">Join ACM Chapter</button>
+            <button id="backToSignin" class="btn ghost" type="button">Back</button>
+          </div>
+          <div id="signupMsg" class="error" style="display:none"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Message Toast Container -->
+  <div id="successToast" class="success-toast" style="display:none">
+    <div class="success-toast-icon">✓</div>
+    <div class="success-toast-title" id="successTitle">Success!</div>
+    <div class="success-toast-message" id="successMessage">Operation completed successfully</div>
+  </div>
+
+  <!-- user-provided redirect snippet included and used below -->
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const redirectPage = urlParams.get("redirect") || "homepage.html";
+  </script>
+
+<script>
+  // ===== SUCCESS MESSAGE FUNCTION =====
+  // Shows an attractive toast message that auto-dismisses after 3 seconds
+  function showSuccessMessage(title, message) {
+    const toast = document.getElementById('successToast');
+    const titleEl = document.getElementById('successTitle');
+    const messageEl = document.getElementById('successMessage');
+
+    // Set title and message content
+    titleEl.textContent = title;
+    messageEl.textContent = message;
+
+    // Remove hide animation class if present
+    toast.classList.remove('hide');
+
+    // Show the toast
+    toast.style.display = 'block';
+
+    // Auto-dismiss after 3 seconds (3000 milliseconds)
+    setTimeout(() => {
+      toast.classList.add('hide');
+      // Hide after animation completes
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 500);
+    }, 3000);
+  }
+
+  // Storage keys:
+  // - acm_accounts : JSON array of account objects { email, password, displayName, studentId, department, year, phone, bio, avatar, joinedAt }
+  // - acm_current  : email of currently signed in user
+
+  const tabSignin = document.getElementById('tab-signin');
+  const tabSignup = document.getElementById('tab-signup');
+  const signinForm = document.getElementById('signinForm');
+  const signupForm = document.getElementById('signupForm');
+
+  const toSignup = document.getElementById('toSignup');
+  const backToSignin = document.getElementById('backToSignin');
+
+  // sign in fields
+  const signinEmail = document.getElementById('signinEmail');
+  const signinPassword = document.getElementById('signinPassword');
+  const signinMsg = document.getElementById('signinMsg');
+
+  // signup fields
+  const fullName = document.getElementById('fullName');
+  const signupEmail = document.getElementById('signupEmail');
+  const studentId = document.getElementById('studentId');
+  const department = document.getElementById('department');
+  const year = document.getElementById('year');
+  const phone = document.getElementById('phone');
+  const signupPassword = document.getElementById('signupPassword');
+  const confirmPassword = document.getElementById('confirmPassword');
+  const bio = document.getElementById('bio');
+  const signupMsg = document.getElementById('signupMsg');
+
+  // tab switches
+  tabSignin.addEventListener('click', () => { tabSignin.classList.add('active'); tabSignup.classList.remove('active'); signinForm.style.display='block'; signupForm.style.display='none'; });
+  tabSignup.addEventListener('click', () => { tabSignup.classList.add('active'); tabSignin.classList.remove('active'); signupForm.style.display='block'; signinForm.style.display='none'; });
+
+  toSignup.addEventListener('click', () => tabSignup.click());
+  backToSignin.addEventListener('click', () => tabSignin.click());
+
+  // localStorage helpers
+  function getAccounts() {
+    try {
+      const raw = localStorage.getItem('acm_accounts');
+      return raw ? JSON.parse(raw) : [];
+    } catch(e) { return []; }
+  }
+  function saveAccounts(accounts) {
+    localStorage.setItem('acm_accounts', JSON.stringify(accounts));
+  }
+  function findAccount(email) {
+    if (!email) return null;
+    const accounts = getAccounts();
+    return accounts.find(a => (a.email||'').toLowerCase() === email.toLowerCase()) || null;
+  }
+
+  // Sign-in: submission via Enter or form submit (there is no primary button per request)
+  signinForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    signinMsg.style.display = 'none';
+    const email = signinEmail.value.trim();
+    const pw = signinPassword.value;
+
+    if (!email || !pw) {
+      signinMsg.textContent = 'Enter email and password.';
+      signinMsg.style.display = 'block';
+      return;
+    }
+    const account = findAccount(email);
+    if (!account) {
+      signinMsg.textContent = 'No account found for this email. Please sign up.';
+      signinMsg.style.display = 'block';
+      return;
+    }
+    if (account.password !== pw) {
+      signinMsg.textContent = 'Incorrect password.';
+      signinMsg.style.display = 'block';
+      return;
+    }
+
+    // SUCCESS: Save current user and show success message
+    localStorage.setItem('acm_current', account.email);
+    account.lastSignIn = new Date().toISOString();
+    const accounts = getAccounts().map(a => a.email === account.email ? account : a);
+    saveAccounts(accounts);
+
+    // Show success toast with student name
+    const studentName = account.displayName || 'Student';
+    showSuccessMessage(
+      'Sign in successful! 👋',
+      `Welcome back, ${studentName}`
+    );
+
+    // Auto-redirect to homepage after success message displays
+    // Delay is set to 3500ms (3 seconds for message display + 0.5s animation)
+    setTimeout(() => { location.href = 'homepage.html'; }, 3500);
+  });
+
+  // Sign-up
+  signupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    signupMsg.style.display = 'none';
+
+    const name = fullName.value.trim();
+    const email = signupEmail.value.trim();
+    const pw = signupPassword.value;
+    const pw2 = confirmPassword.value;
+
+    if (!name || !email || !pw) {
+      signupMsg.textContent = 'Please fill name, email and password.';
+      signupMsg.style.display = 'block';
+      return;
+    }
+    if (pw.length < 6) {
+      signupMsg.textContent = 'Password must be at least 6 characters.';
+      signupMsg.style.display = 'block';
+      return;
+    }
+    if (pw !== pw2) {
+      signupMsg.textContent = 'Passwords do not match.';
+      signupMsg.style.display = 'block';
+      return;
+    }
+    // (removed auto-redirect here so signup flow continues normally)
+
+
+    // create account object
+    const account = {
+      displayName: name,
+      email: email.toLowerCase(),
+      password: pw,
+      studentId: studentId.value.trim(),
+      department: department.value || '',
+      year: year.value || '',
+      phone: phone.value.trim(),
+      bio: bio.value.trim(),
+      joinedAt: new Date().toISOString()
+      // avatar: could be added later as dataURL
+    };
+
+    // save to accounts (prevent duplicate)
+    const existing = findAccount(account.email);
+    if (existing) {
+      signupMsg.textContent = 'An account with this email already exists — try signing in.';
+      signupMsg.style.display = 'block';
+      return;
+    }
+    const accounts = getAccounts();
+    accounts.push(account);
+    saveAccounts(accounts);
+
+    // SUCCESS: Set current user and show success message
+    localStorage.setItem('acm_current', account.email);
+
+    // Show success toast
+    showSuccessMessage(
+      'Profile created successfully! 🎉',
+      'Welcome to ACM Chapter'
+    );
+
+    // Clear the form
+    signupForm.reset();
+
+    // Auto-redirect to homepage after success message displays
+    // Delay is set to 3500ms (3 seconds for message display + 0.5s animation)
+    setTimeout(() => { location.href = 'homepage.html'; }, 3500);
+  });
+
+  // Removed automatic page-load redirect to keep signin/signup open.
+
+  // ===== SELECT DROPDOWN STYLING (SIMPLIFIED) =====
+  // Dropdowns maintain consistent black-on-white styling
+  // No need to toggle classes - CSS handles all states
+  // This minimal JS just ensures the selects are ready
+  [department, year].forEach(selectEl => {
+    if (!selectEl) return;
+    // Initial setup - dropdowns are styled via CSS only
+    selectEl.addEventListener('change', () => {
+      // CSS handles styling, no class toggling needed
+    });
+  });
+
+  // ===== PASSWORD SHOW / HIDE TOGGLE =====
+  // Toggle password field visibility for "Create password"
+  const togglePasswordBtn = document.getElementById('togglePassword');
+  const signupPasswordField = document.getElementById('signupPassword');
+
+  if (togglePasswordBtn) {
+    togglePasswordBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      // Toggle between 'password' and 'text' input types
+      const isPassword = signupPasswordField.type === 'password';
+      signupPasswordField.type = isPassword ? 'text' : 'password';
+      // Update icon: 👁️ (closed eye) or 👁️‍🗨️ (open eye)
+      togglePasswordBtn.textContent = isPassword ? '🙈' : '👁️';
+    });
+  }
+
+  // Toggle password field visibility for "Confirm password"
+  const toggleConfirmPasswordBtn = document.getElementById('toggleConfirmPassword');
+  const confirmPasswordField = document.getElementById('confirmPassword');
+
+  if (toggleConfirmPasswordBtn) {
+    toggleConfirmPasswordBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      // Toggle between 'password' and 'text' input types
+      const isPassword = confirmPasswordField.type === 'password';
+      confirmPasswordField.type = isPassword ? 'text' : 'password';
+      // Update icon: 👁️ (closed eye) or 🙈 (open eye)
+      toggleConfirmPasswordBtn.textContent = isPassword ? '🙈' : '👁️';
+    });
+  }
+
+</script>
+</body>
+</html>

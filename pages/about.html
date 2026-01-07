@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - APEC ACM Student Chapter</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <meta name="description" content="Learn about APEC ACM Student Chapter - Where theory meets practice. Discover our mission, values, and impact in empowering tomorrow's computing leaders." />
+  
+  <script type="module" async src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fapecacmh8266back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.10"></script>
+  <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+  </head>
+<body class="bg-background font-inter">
+    <!-- Navigation Header -->
+    <nav class="bg-white shadow-soft sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-10 w-10 text-primary" viewBox="0 0 40 40" fill="currentColor">
+                            <rect x="2" y="2" width="36" height="36" rx="8" fill="currentColor"/>
+                            <path d="M12 14h16v2H12v-2zm0 4h16v2H12v-2zm0 4h12v2H12v-2z" fill="white"/>
+                            <circle cx="30" cy="10" r="4" fill="#2575FC"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-xl font-bold text-text-primary">APEC ACM</h1>
+                        <p class="text-xs text-text-secondary">Student Chapter</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="homepage.html" class="text-text-secondary hover:text-primary transition-colors duration-300 px-3 py-2 rounded-md text-sm">Home</a>
+                        <a href="about.html" class="text-primary font-semibold px-3 py-2 rounded-md text-sm">About</a>
+                        <a href="events.html" class="text-text-secondary hover:text-primary transition-colors duration-300 px-3 py-2 rounded-md text-sm">Events</a>
+                        <a href="team.html" class="text-text-secondary hover:text-primary transition-colors duration-300 px-3 py-2 rounded-md text-sm">Team</a>
+                        <a href="resources.html" class="text-text-secondary hover:text-primary transition-colors duration-300 px-3 py-2 rounded-md text-sm">Resources</a>
+                        <a href="news_updates.html" class="text-text-secondary hover:text-primary transition-colors duration-300 px-3 py-2 rounded-md text-sm">News</a>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <a href="signin-signup.html">
+                    <button class="btn-primary">JOIN ACM</button>
+                    </a>
+
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-text-secondary hover:text-primary p-2">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-border">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="homepage.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Home</a>
+                <a href="about.html" class="text-primary font-semibold block px-3 py-2 rounded-md text-base">About</a>
+                <a href="events.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Events</a>
+                <a href="team.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Team</a>
+                <a href="resources.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Resources</a>
+                <a href="news_updates.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">News</a>
+                <div class="px-3 py-2">
+                    <button class="btn-primary w-full">Join ACM</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-hero text-white overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-20"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+            <div class="text-center fade-in">
+                <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+                    Where Theory Meets
+                    <span class="text-accent-100">Practice</span>
+                </h1>
+                <p class="text-xl lg:text-2xl mb-8 text-gray-100 leading-relaxed max-w-4xl mx-auto">
+                    APEC ACM Student Chapter embodies the intersection of academic excellence and practical innovation in computing, serving as the bridge between classroom learning and industry leadership.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="btn-accent text-lg px-8 py-4">Join Our Mission</button>
+                    <a href="events.html" class="border-2 border-white text-white font-semibold py-4 px-8 rounded-lg hover:bg-white hover:text-primary transition-all duration-300">
+                        Explore Our Events
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Statement Section -->
+    <section class="bg-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-text-primary mb-4">Our Mission & Vision</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">Empowering tomorrow's computing leaders through collaboration, innovation, and professional growth.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Mission Card -->
+                <div class="card hover:shadow-hover transition-all duration-300 group">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-primary-50 p-4 rounded-lg">
+                            <svg class="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-text-primary ml-4">Mission</h3>
+                    </div>
+                    <p class="text-text-secondary leading-relaxed">
+                        To advance computing as a science and profession by fostering innovation, collaboration, and excellence among students. We bridge the gap between academic theory and industry practice, preparing the next generation of computing leaders.
+                    </p>
+                </div>
+
+                <!-- Vision Card -->
+                <div class="card hover:shadow-hover transition-all duration-300 group">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-secondary-50 p-4 rounded-lg">
+                            <svg class="h-10 w-10 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-text-primary ml-4">Vision</h3>
+                    </div>
+                    <p class="text-text-secondary leading-relaxed">
+                        To be the premier student organization that transforms computing education through hands-on experience, industry connections, and a supportive community that empowers every member to achieve their full potential.
+                    </p>
+                </div>
+
+                <!-- Values Card -->
+                <div class="card hover:shadow-hover transition-all duration-300 group">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-accent-50 p-4 rounded-lg">
+                            <svg class="h-10 w-10 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-text-primary ml-4">Values</h3>
+                    </div>
+                    <p class="text-text-secondary leading-relaxed">
+                        Excellence in everything we do, inclusive collaboration that welcomes all perspectives, continuous innovation that pushes boundaries, and ethical leadership that makes a positive impact on society.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapter Story Timeline -->
+    <section class="bg-surface py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-text-primary mb-4">Our Journey</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">From humble beginnings to becoming a leading force in computing education and innovation.</p>
+            </div>
+            
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-primary h-full hidden lg:block"></div>
+                
+                <!-- Timeline Items -->
+                <div class="space-y-12">
+                    <!-- 2020 - Foundation -->
+                    <div class="flex flex-col lg:flex-row items-center">
+                        <div class="lg:w-1/2 lg:pr-8 mb-8 lg:mb-0">
+                            <div class="card text-center lg:text-right">
+                                <div class="flex items-center justify-center lg:justify-end mb-4">
+                                    <div class="bg-primary text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg">
+                                        2020
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-semibold text-text-primary mb-3">Chapter Foundation</h3>
+                                <p class="text-text-secondary">
+                                    APEC ACM Student Chapter was officially established with 15 founding members, driven by a shared vision to create a vibrant computing community on campus.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 lg:pl-8">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Chapter foundation meeting" class="rounded-lg shadow-hover w-full h-64 object-cover" loading="lazy" onerror="this.src='https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                        </div>
+                    </div>
+
+                    <!-- 2021 - First Major Event -->
+                    <div class="flex flex-col lg:flex-row-reverse items-center">
+                        <div class="lg:w-1/2 lg:pl-8 mb-8 lg:mb-0">
+                            <div class="card text-center lg:text-left">
+                                <div class="flex items-center justify-center lg:justify-start mb-4">
+                                    <div class="bg-secondary text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg">
+                                        2021
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-semibold text-text-primary mb-3">First Annual Hackathon</h3>
+                                <p class="text-text-secondary">
+                                    Organized our inaugural 48-hour hackathon with 100+ participants, establishing our reputation for hosting high-quality technical events and fostering innovation.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 lg:pr-8">
+                            <img src="https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="First hackathon event" class="rounded-lg shadow-hover w-full h-64 object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                        </div>
+                    </div>
+
+                    <!-- 2022 - Industry Partnerships -->
+                    <div class="flex flex-col lg:flex-row items-center">
+                        <div class="lg:w-1/2 lg:pr-8 mb-8 lg:mb-0">
+                            <div class="card text-center lg:text-right">
+                                <div class="flex items-center justify-center lg:justify-end mb-4">
+                                    <div class="bg-accent text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg">
+                                        2022
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-semibold text-text-primary mb-3">Industry Partnerships</h3>
+                                <p class="text-text-secondary">
+                                    Forged strategic partnerships with leading tech companies, creating internship opportunities and mentorship programs that directly benefit our members.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 lg:pl-8">
+                            <img src="https://images.pixabay.com/photo/2015/07/17/22/43/student-849825_1280.jpg" alt="Industry partnership meeting" class="rounded-lg shadow-hover w-full h-64 object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=2926&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                        </div>
+                    </div>
+
+                    <!-- 2023 - Recognition -->
+                    <div class="flex flex-col lg:flex-row-reverse items-center">
+                        <div class="lg:w-1/2 lg:pl-8 mb-8 lg:mb-0">
+                            <div class="card text-center lg:text-left">
+                                <div class="flex items-center justify-center lg:justify-start mb-4">
+                                    <div class="bg-success text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg">
+                                        2023
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-semibold text-text-primary mb-3">National Recognition</h3>
+                                <p class="text-text-secondary">
+                                    Received the "Outstanding Student Chapter" award from ACM, recognizing our exceptional contributions to computing education and community engagement.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 lg:pr-8">
+                            <img src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Award ceremony" class="rounded-lg shadow-hover w-full h-64 object-cover" loading="lazy" onerror="this.src='https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                        </div>
+                    </div>
+
+                    <!-- 2024-2025 - Current Era -->
+                    <div class="flex flex-col lg:flex-row items-center">
+                        <div class="lg:w-1/2 lg:pr-8 mb-8 lg:mb-0">
+                            <div class="card text-center lg:text-right">
+                                <div class="flex items-center justify-center lg:justify-end mb-4">
+                                    <div class="bg-primary text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-sm">
+                                        2025
+                                    </div>
+                                </div>
+                                <h3 class="text-xl font-semibold text-text-primary mb-3">Innovation Hub</h3>
+                                <p class="text-text-secondary">
+                                    Today, we're 250+ members strong, leading cutting-edge research projects, hosting international speakers, and maintaining a 92% job placement rate for our graduates.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 lg:pl-8">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Current chapter activities" class="rounded-lg shadow-hover w-full h-64 object-cover" loading="lazy" onerror="this.src='https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Statistics -->
+    <section class="bg-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-text-primary mb-4">Our Impact</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">Measurable results that demonstrate our commitment to excellence and member success.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Active Members -->
+                <div class="card text-center group hover:shadow-hover transition-all duration-300">
+                    <div class="bg-primary-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <div class="text-4xl font-bold text-primary mb-2">250+</div>
+                    <div class="text-text-secondary font-medium">Active Members</div>
+                    <div class="text-sm text-text-muted mt-2">Growing community of computing enthusiasts</div>
+                </div>
+
+                <!-- Events Hosted -->
+                <div class="card text-center group hover:shadow-hover transition-all duration-300">
+                    <div class="bg-secondary-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="h-8 w-8 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <div class="text-4xl font-bold text-secondary mb-2">150+</div>
+                    <div class="text-text-secondary font-medium">Events Hosted</div>
+                    <div class="text-sm text-text-muted mt-2">Workshops, hackathons, and networking events</div>
+                </div>
+
+                <!-- Industry Partners -->
+                <div class="card text-center group hover:shadow-hover transition-all duration-300">
+                    <div class="bg-accent-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="h-8 w-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        </svg>
+                    </div>
+                    <div class="text-4xl font-bold text-accent mb-2">25+</div>
+                    <div class="text-text-secondary font-medium">Industry Partners</div>
+                    <div class="text-sm text-text-muted mt-2">Leading tech companies and startups</div>
+                </div>
+
+                <!-- Job Placement Rate -->
+                <div class="card text-center group hover:shadow-hover transition-all duration-300">
+                    <div class="bg-success-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="h-8 w-8 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                        </svg>
+                    </div>
+                    <div class="text-4xl font-bold text-success mb-2">92%</div>
+                    <div class="text-text-secondary font-medium">Job Placement Rate</div>
+                    <div class="text-sm text-text-muted mt-2">Within 6 months of graduation</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Philosophy -->
+    <section class="bg-gradient-secondary text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">Leadership Philosophy</h2>
+                <p class="text-xl text-gray-100 max-w-3xl mx-auto">Our approach to developing the next generation of computing leaders through inclusive, collaborative, and innovative practices.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Inclusive Leadership -->
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 hover:bg-opacity-20 transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-white bg-opacity-20 p-3 rounded-lg">
+                            <svg class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold ml-3">Inclusive Leadership</h3>
+                    </div>
+                    <p class="text-gray-100 leading-relaxed">
+                        We believe that diverse perspectives drive innovation. Our leadership development programs ensure every voice is heard and valued, creating an environment where all members can thrive.
+                    </p>
+                </div>
+
+                <!-- Collaborative Growth -->
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 hover:bg-opacity-20 transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-white bg-opacity-20 p-3 rounded-lg">
+                            <svg class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold ml-3">Collaborative Growth</h3>
+                    </div>
+                    <p class="text-gray-100 leading-relaxed">
+                        Leadership isn't about individual achievement—it's about lifting others up. We foster collaborative environments where members learn from each other and grow together.
+                    </p>
+                </div>
+
+                <!-- Innovation Focus -->
+                <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 hover:bg-opacity-20 transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-white bg-opacity-20 p-3 rounded-lg">
+                            <svg class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold ml-3">Innovation Focus</h3>
+                    </div>
+                    <p class="text-gray-100 leading-relaxed">
+                        We encourage creative thinking and risk-taking. Our leaders are innovators who aren't afraid to challenge the status quo and explore new possibilities in computing.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section class="bg-surface py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-text-primary mb-4">Chapter Life</h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">Capturing moments of collaboration, innovation, and community that define our chapter experience.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="relative overflow-hidden rounded-lg shadow-hover group">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Team collaboration session" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" onerror="this.src='https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <p class="text-white font-semibold text-lg">Team Collaboration</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="relative overflow-hidden rounded-lg shadow-hover group">
+                    <img src="https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Hackathon event" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <p class="text-white font-semibold text-lg">Hackathon Innovation</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="relative overflow-hidden rounded-lg shadow-hover group">
+                    <img src="https://images.pixabay.com/photo/2015/07/17/22/43/student-849825_1280.jpg" alt="Workshop session" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=2926&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <p class="text-white font-semibold text-lg">Learning Workshops</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="relative overflow-hidden rounded-lg shadow-hover group">
+                    <img src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Award ceremony" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" onerror="this.src='https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <p class="text-white font-semibold text-lg">Achievement Recognition</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="relative overflow-hidden rounded-lg shadow-hover group">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Networking event" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" onerror="this.src='https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <p class="text-white font-semibold text-lg">Networking Events</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="relative overflow-hidden rounded-lg shadow-hover group">
+                    <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Community impact project" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <p class="text-white font-semibold text-lg">Community Impact</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-gradient-primary text-white py-20">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl lg:text-4xl font-bold mb-6">Ready to Be Part of Our Story?</h2>
+            <p class="text-xl mb-8 text-gray-100">Join a community that's shaping the future of computing through collaboration, innovation, and excellence.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="btn-accent text-lg px-8 py-4">Join Our Chapter</button>
+                <a href="events.html" class="border-2 border-white text-white font-semibold py-4 px-8 rounded-lg hover:bg-white hover:text-primary transition-all duration-300">
+                    Explore Our Events
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-text-primary text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo and Description -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-10 w-10 text-primary" viewBox="0 0 40 40" fill="currentColor">
+                            <rect x="2" y="2" width="36" height="36" rx="8" fill="currentColor"/>
+                            <path d="M12 14h16v2H12v-2zm0 4h16v2H12v-2zm0 4h12v2H12v-2z" fill="white"/>
+                            <circle cx="30" cy="10" r="4" fill="#2575FC"/>
+                        </svg>
+                        <div class="ml-3">
+                            <h3 class="text-xl font-bold">APEC ACM Student Chapter</h3>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 max-w-md">Empowering tomorrow's computing leaders through collaboration, innovation, and professional development. Where theory meets practice.</p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-gray-300 hover:text-primary transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-300 hover:text-primary transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-300 hover:text-primary transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-300 hover:text-primary transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.097.118.112.222.083.343-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24c6.624 0 11.99-5.367 11.99-11.987C24.007 5.367 18.641.001 12.017.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="homepage.html" class="text-gray-300 hover:text-primary transition-colors duration-300">Home</a></li>
+                        <li><a href="events.html" class="text-gray-300 hover:text-primary transition-colors duration-300">Events</a></li>
+                        <li><a href="team.html" class="text-gray-300 hover:text-primary transition-colors duration-300">Our Team</a></li>
+                        <li><a href="resources.html" class="text-gray-300 hover:text-primary transition-colors duration-300">Resources</a></li>
+                        <li><a href="news_updates.html" class="text-gray-300 hover:text-primary transition-colors duration-300">News & Updates</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center">
+                            <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            acm@apec.edu
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            APEC Campus, Room CS-201
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            Mon-Fri: 9:00 AM - 5:00 PM
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+                <p class="text-gray-300">© 2025 APEC ACM Student Chapter. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.slide-up').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
