@@ -1,5 +1,4 @@
 # ACM-CHAPTER-FINAL-SITE
-<<<<<<< HEAD
 # HTML
 
 A modern HTML project utilizing Tailwind CSS for building responsive web applications with minimal setup.
@@ -75,12 +74,3 @@ The app is built with responsive design using Tailwind CSS breakpoints:
 - `lg`: 1024px and up
 - `xl`: 1280px and up
 - `2xl`: 1536px and up
-
-## 🙏 Acknowledgments
-
-- Built with [Rocket.new](https://rocket.new)
-- Powered by HTML and Tailwind CSS
-
-
-# ACM-CHAPTER-FINAL-SITE
->>>>>>> daaa6cd039619f057e6f78a4875082ab5e6b532a
